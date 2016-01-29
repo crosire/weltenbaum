@@ -1,0 +1,28 @@
+# Temporary folders
+[Bb]uild/
+[Ll]ibrary/
+[Oo]bj/
+[Tt]emp/
+
+# Generated meta files
+*.pidb.meta
+
+# Generated solution and project files
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+
+# Temporary OS files
+.DS_Store
+Thumbs.db
+Thumbs.db.meta
+
+# Photoshop
+*.psd
+*.psd.meta
