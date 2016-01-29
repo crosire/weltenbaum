@@ -14,9 +14,10 @@ public enum GameState
 public class GameManager : MonoBehaviour
 {
 	#region Inspector Variables
+
 	#endregion
 
-	GameState _gameState = GameState.Title;
+
 
 	private static GameManager Singleton { get; set; }
 
@@ -26,8 +27,9 @@ public class GameManager : MonoBehaviour
 
 		Singleton = this;
 	}
+
 	void Start()
 	{
-		SceneManager.LoadScene(1);
+		SceneManager.LoadScene(1, LoadSceneMode.Additive);
 	}
 }

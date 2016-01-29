@@ -26,4 +26,4 @@ MonoBehaviour:
   defaultEasePeriod: 0
   defaultAutoKill: 1
   defaultLoopType: 0
-  storeSettingsLocation: 0
+  storeSettingsLocation: 1
