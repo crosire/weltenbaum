@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public enum GameState
@@ -24,5 +25,9 @@ public class GameManager : MonoBehaviour
 		Debug.Assert(Singleton == null, "Cannot create multiple instances of the 'GameManager' singleton class.");
 
 		Singleton = this;
+	}
+	void Start()
+	{
+		SceneManager.LoadScene(1);
 	}
 }
