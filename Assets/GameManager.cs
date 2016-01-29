@@ -28,6 +28,6 @@ public class GameManager : MonoBehaviour
 	}
 	void Start()
 	{
-		SceneManager.LoadScene(1);
+		SceneManager.LoadScene(1, LoadSceneMode.Additive);
 	}
 }
