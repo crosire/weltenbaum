@@ -1,28 +1,20 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
-[System.Serializable]
 public enum GameState
 {
-	Title,
+	None,
+	Menu,
 	Running,
 	Paused,
 	Won,
 	Lost,
 }
 
-
 public class GameManager : MonoBehaviour
 {
-
-	public string _sceneGameRunning;
-
-	#region Inspector Variables
-
-	#endregion
-
-
+	GameState _currentState = GameState.None;
 
 	private static GameManager Singleton { get; set; }
 
@@ -32,39 +24,30 @@ public class GameManager : MonoBehaviour
 
 		Singleton = this;
 	}
-
 	void Start()
 	{
-		SceneManager.LoadScene(1, LoadSceneMode.Additive);
+		SwitchGameState(GameState.Menu);
 	}
 
-	public static void SwitchGameState(GameState gamestate)
+	public static void SwitchGameState(GameState state)
 	{
-		switch (gamestate)
+		if (state == Singleton._currentState)
 		{
-			case GameState.Title: 
-				break;
-			case GameState.Lost: 
-				SceneManager.UnloadScene(2);
-				break;
-			case GameState.Won: 
-				SceneManager.UnloadScene(2);
-				break;
-			case GameState.Paused: 
-
-				break;
-			case GameState.Running:
-				
-				Singleton.StartCoroutine(Singleton.LoadSceneRunning());
-				break;
-			default:
-				break;
+			return;
 		}
-	}
 
-	IEnumerator LoadSceneRunning()
-	{
-		yield return SceneManager.LoadSceneAsync(_sceneGameRunning, LoadSceneMode.Additive);
-		SceneManager.SetActiveScene(SceneManager.GetSceneByName(_sceneGameRunning));
+		// Load new scene
+		if (state != GameState.None)
+		{
+			SceneManager.LoadSceneAsync("Game (" + state + ")", LoadSceneMode.Additive);
+		}
+
+		// Unload previous scene
+		if (Singleton._currentState != GameState.None)
+		{
+			SceneManager.UnloadScene("Game (" + Singleton._currentState + ")");
+		}
+
+		Singleton._currentState = state;
 	}
 }
