@@ -37,7 +37,7 @@ public class PathFollowAgent : MonoBehaviour
 
 	void Update()
 	{
-		if (_entity._entityState != EntityState.Walk)
+		if (_entity.State != EntityState.Walk)
 		{
 			if (!_stopped)
 			{
