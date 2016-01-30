@@ -728,15 +728,8 @@ MonoBehaviour:
   - {fileID: 8422685}
   - {fileID: 394924863}
   _waves:
-  - AmountType0: 2
-    AmountType1: 2
-    AmountType2: 2
-  - AmountType0: 2
-    AmountType1: 2
-    AmountType2: 2
-  - AmountType0: 2
-    AmountType1: 2
-    AmountType2: 2
+  - SpawnInterval: 1
+    SpawnAmounts: 020000000300000001000000
 --- !u!4 &1143370274
 Transform:
   m_ObjectHideFlags: 0

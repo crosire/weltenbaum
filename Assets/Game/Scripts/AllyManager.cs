@@ -18,8 +18,9 @@ public class AllyManager : MonoBehaviour
 
 	public void OnGesture1()
 	{
-		var obj = (GameObject)Instantiate(_allies[0], _alliesSpawnpoints[_cameraMovement.LaneIndex].position, Quaternion.identity);
+		var instance = (GameObject)Instantiate(_allies[0], _alliesSpawnpoints[_cameraMovement.LaneIndex].position, Quaternion.identity);
 
-		obj.GetComponent<PathFollowAgent>().LaneIndex = _cameraMovement.LaneIndex;
+		instance.transform.SetParent(this.transform);
+		instance.GetComponent<PathFollowAgent>().LaneIndex = _cameraMovement.LaneIndex;
 	}
 }
