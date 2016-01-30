@@ -28,6 +28,10 @@ public class Entity : MonoBehaviour
 		WaveManager.AliveEnemies--;
 	}
 
+	public void OnReachedLaneBegin()
+	{
+		_entityState = EntityState.Idle;
+	}
 	public void OnReachedLaneEnd()
 	{
 		_entityState = EntityState.Idle;
