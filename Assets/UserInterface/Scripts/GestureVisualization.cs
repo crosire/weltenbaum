@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-[RequireComponent(typeof(LineRenderer))]
-[RequireComponent(typeof(GestureInput))]
-public class GestureVisualisation : MonoBehaviour
+[RequireComponent(typeof(LineRenderer), typeof(GestureInput))]
+public class GestureVisualization : MonoBehaviour
 {
 	#region Inspector Variables
 	[SerializeField]
@@ -59,10 +58,8 @@ public class GestureVisualisation : MonoBehaviour
 			}
 
 			vertex.z = Camera.main.nearClipPlane;
+			vertex.z += 0.001f * Input.mousePosition.x / Screen.width; // Fix line artifacts
 			vertex = Camera.main.ScreenToWorldPoint(vertex);
-
-			// Fix line artifacts
-			vertex.z += 0.001f * Input.mousePosition.x / Screen.width;
 
 			_renderer.SetVertexCount(++_vertexCount);
 			_renderer.SetPosition(_vertexCount - 1, vertex);
