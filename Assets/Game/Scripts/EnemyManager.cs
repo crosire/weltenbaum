@@ -13,13 +13,12 @@ public class EnemyManager : MonoBehaviour
 	[SerializeField]
 	GameObject[] _enemies;
 	[SerializeField]
-	Transform[] _enemiesSpawnpoints;
-	[SerializeField]
 	Wave[] _waves;
 	#endregion
 
 	int _currentWave = -1, _remainingEnemies = 0;
 	float _spawnTimeout = 0.0f;
+	Vector3[] _spawnpoints;
 
 	public static int AliveEnemies { get; set; }
 
@@ -30,6 +29,15 @@ public class EnemyManager : MonoBehaviour
 		Debug.Assert(Singleton == null, "Cannot create multiple instances of the 'GameManager' singleton class.");
 
 		Singleton = this;
+	}
+	void Start()
+	{
+		_spawnpoints = new Vector3[LaneManager.LaneCount];
+
+		for (int lane = 0; lane < _spawnpoints.Length; lane++)
+		{
+			_spawnpoints[lane] = LaneManager.GetWaypoint(lane, 0);
+		}
 	}
 
 	void Update()
@@ -51,7 +59,7 @@ public class EnemyManager : MonoBehaviour
 
 			Debug.Assert(_waves[_currentWave].SpawnAmounts.Length == _enemies.Length, "Wave spawn amount array length does not match EnemyManager enemy array length.");
 
-			int randomType, randomSpawnpoint = Random.Range(0, _enemiesSpawnpoints.Length);
+			int randomType, randomSpawnpoint = Random.Range(0, _spawnpoints.Length);
 
 			do
 			{
@@ -63,9 +71,10 @@ public class EnemyManager : MonoBehaviour
 			_remainingEnemies--;
 			_waves[_currentWave].SpawnAmounts[randomType]--;
 
-			var instance = (GameObject)Instantiate(_enemies[randomType], _enemiesSpawnpoints[randomSpawnpoint].position, Quaternion.identity);
+			var instance = (GameObject)Instantiate(_enemies[randomType], _spawnpoints[randomSpawnpoint], Quaternion.identity);
 
 			instance.transform.SetParent(this.transform);
+			instance.GetComponent<PathFollowAgent>().LaneIndex = randomSpawnpoint;
 		}
 	}
 

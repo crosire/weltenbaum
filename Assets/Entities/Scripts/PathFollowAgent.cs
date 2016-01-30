@@ -52,7 +52,7 @@ public class PathFollowAgent : MonoBehaviour
 			_navagent.Resume();
 		}
 
-		if (_navagent.remainingDistance < 1.0f)
+		if (!_navagent.pathPending && _navagent.remainingDistance < 1.0f)
 		{
 			if (NextWaypointIndex < 0)
 			{
