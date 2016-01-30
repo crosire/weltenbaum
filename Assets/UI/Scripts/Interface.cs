@@ -38,6 +38,7 @@ public class Interface : MonoBehaviour
 		sequence
 			.Append(_menu.DOFade(0f, 1f))
 			.Append(_interface.DOFade(1f, .5f));
+		GameManager.SwitchGameState(GameState.Running);
 	}
 
 	public void OnHelpPressed()

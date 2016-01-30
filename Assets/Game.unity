@@ -41,7 +41,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
-  m_GIWorkflowMode: 1
+  m_GIWorkflowMode: 0
   m_LightmapsMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -218,8 +218,9 @@ Transform:
   - {fileID: 1686342523}
   - {fileID: 550092657}
   - {fileID: 578817619}
+  - {fileID: 1867418129}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!1 &550092656
 GameObject:
   m_ObjectHideFlags: 0
@@ -470,8 +471,8 @@ Transform:
   m_LocalPosition: {x: 35.9, y: 41.4, z: 29.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 1867418129}
+  m_RootOrder: 2
 --- !u!1 &989332644
 GameObject:
   m_ObjectHideFlags: 0
@@ -499,6 +500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 029e2bbb8cb2f3b468c3436d301a55b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sceneGameRunning: Game (Running)
 --- !u!4 &989332646
 Transform:
   m_ObjectHideFlags: 0
@@ -510,7 +512,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!1 &1050928555
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,8 +538,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 30, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_Father: {fileID: 1867418129}
+  m_RootOrder: 3
 --- !u!1 &1193564206
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,8 +565,8 @@ Transform:
   m_LocalPosition: {x: -29.2, y: 41.4, z: 17.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_Father: {fileID: 1867418129}
+  m_RootOrder: 1
 --- !u!1 &1265082217
 GameObject:
   m_ObjectHideFlags: 0
@@ -590,8 +592,8 @@ Transform:
   m_LocalPosition: {x: 0.1, y: 41.4, z: -35.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 1867418129}
+  m_RootOrder: 0
 --- !u!1 &1686342522
 GameObject:
   m_ObjectHideFlags: 0
@@ -667,6 +669,37 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1686342522}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1867418128
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1867418129}
+  m_Layer: 0
+  m_Name: Camera Points
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1867418129
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1867418128}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1265082218}
+  - {fileID: 1193564207}
+  - {fileID: 959617648}
+  - {fileID: 1050928556}
+  m_Father: {fileID: 377025025}
+  m_RootOrder: 5
 --- !u!1 &1904210894
 GameObject:
   m_ObjectHideFlags: 0
