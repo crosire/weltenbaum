@@ -38,6 +38,12 @@ public class PathFollowAgent : MonoBehaviour
 
 		if (_agent.remainingDistance < 1.0f)
 		{
+			if (NextWaypointIndex >= LaneManager.GetWaypointCount(LaneIndex))
+			{
+				_entity.OnReachedLaneEnd();
+				return;
+			}
+
 			_agent.destination = LaneManager.GetWaypoint(LaneIndex, NextWaypointIndex++);
 		}
 	}
