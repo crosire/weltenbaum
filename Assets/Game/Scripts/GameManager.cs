@@ -29,6 +29,14 @@ public class GameManager : MonoBehaviour
 		SwitchGameState(GameState.Menu);
 	}
 
+	void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.P) && (_currentState == GameState.Running || _currentState == GameState.Paused))
+		{
+			SwitchGameState(_currentState == GameState.Paused ? GameState.Running : GameState.Paused);
+		}
+	}
+
 	public static void SwitchGameState(GameState state)
 	{
 		if (state == Singleton._currentState)
