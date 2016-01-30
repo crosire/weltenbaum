@@ -8,6 +8,8 @@ public class CameraMovement : MonoBehaviour
 	public Transform[] _lanePositions;
 	int _laneIndex = 0;
 
+	public int LaneIndex{ get; private set; }
+
 	void Start()
 	{
 	}

@@ -12,15 +12,11 @@ public class WaveManager : MonoBehaviour
 
 	[Header("Entities")]
 	public GameObject[] _enemies;
-	public GameObject[] _allies;
 	public GameObject[] _entitiesSpawnpoint;
 
 	public Wave[] _waves;
 	int _finishedWaves = 0;
 	int _aliveEnemies = 0;
-
-	[Header("Misc")]
-	public GameObject[] _spawnPoints;
 
 	public static int AliveEnemies { get; set; }
 
@@ -39,9 +35,6 @@ public class WaveManager : MonoBehaviour
 		{
 			SpawnWave();
 		}
-
-		//TODO 
-
 	}
 
 	void SpawnWave()
@@ -49,7 +42,7 @@ public class WaveManager : MonoBehaviour
 		_aliveEnemies = _waves[_finishedWaves]._entityType0 + _waves[_finishedWaves]._entityType1 + _waves[_finishedWaves]._entityType2;
 		for (int i = 0; i < _aliveEnemies; i++)
 		{
-			GameObject _temp = Instantiate(_enemies[0], _spawnPoints[0].transform.position, Quaternion.identity) as GameObject;
+			GameObject _temp = Instantiate(_enemies[0], _entitiesSpawnpoint[0].transform.position, Quaternion.identity) as GameObject;
 			_temp.transform.parent = _entitiesSpawnpoint[0].transform;
 		}
 
