@@ -29,13 +29,6 @@ public class GameManager : MonoBehaviour
 		SwitchGameState(GameState.Menu);
 	}
 
-	IEnumerator LoadSceneAndSetActive(string name)
-	{
-		yield return SceneManager.LoadSceneAsync(name, LoadSceneMode.Additive);
-
-		SceneManager.SetActiveScene(SceneManager.GetSceneByName(name));
-	}
-
 	public static void SwitchGameState(GameState state)
 	{
 		if (state == Singleton._currentState)
@@ -46,7 +39,7 @@ public class GameManager : MonoBehaviour
 		// Load new scene
 		if (state != GameState.None)
 		{
-			Singleton.StartCoroutine(Singleton.LoadSceneAndSetActive("Game (" + state + ")"));
+			SceneManager.LoadSceneAsync("Game (" + state + ")", LoadSceneMode.Additive);
 		}
 
 		// Unload previous scene

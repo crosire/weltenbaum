@@ -42,8 +42,7 @@ public class WaveManager : MonoBehaviour
 		_aliveEnemies = _waves[_finishedWaves]._entityType0 + _waves[_finishedWaves]._entityType1 + _waves[_finishedWaves]._entityType2;
 		for (int i = 0; i < _aliveEnemies; i++)
 		{
-			GameObject _temp = Instantiate(_enemies[0], _entitiesSpawnpoint[0].transform.position, Quaternion.identity) as GameObject;
-			_temp.transform.parent = _entitiesSpawnpoint[0].transform;
+			Instantiate(_enemies[0], _entitiesSpawnpoint[0].transform.position, Quaternion.identity);
 		}
 
 		if (_finishedWaves < _waves.Length)
