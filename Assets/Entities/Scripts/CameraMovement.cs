@@ -4,64 +4,60 @@ using System.Collections;
 
 public class CameraMovement : MonoBehaviour
 {
-	public Transform _cameraFocus;
-	public Transform[] _laneCameraPositions;
-	public Transform[] _cameraTransitionsPositions;
-	int _preLaneIndex;
-	int _laneIndex = 0;
-	float _distance = 0;
+	#region Inspector Variables
+	[SerializeField]
+	Transform _lookAt;
+	[SerializeField]
+	Transform[] _viewPositions;
+	#endregion
 
+	int _laneIndex = 0, _laneIndexPrev = 0;
+	float _distance = 0;
 
 	public int LaneIndex { get { return _laneIndex; } }
 
 	void Start()
 	{
-		this.transform.DOMove(_laneCameraPositions[_laneIndex].transform.position, 1f);
+		this.transform.DOMove(_viewPositions[_laneIndex].transform.position, 1f);
 	}
 
 	void Update()
 	{
-		this.transform.DOLookAt(_cameraFocus.transform.position, 0);
-		UpdateLaneIndex();
-		if (_distance > 0)
+		if (_distance > 0.0f)
 		{
-			
-			var tmp = Vector3.Slerp(new Vector2(_laneCameraPositions[_laneIndex].position.x, _laneCameraPositions[_laneIndex].position.z), new Vector2(_laneCameraPositions[_preLaneIndex].position.x, _laneCameraPositions[_preLaneIndex].position.z), _distance);
-			tmp.z = tmp.y;
-			tmp.y = this.transform.position.y;
-			this.transform.position = tmp;
+			var start = _viewPositions[_laneIndexPrev].position;
+			var target = _viewPositions[_laneIndex].position;
+
+			start.y = 0.0f;
+			target.y = 0.0f;
+
+			target = Vector3.Slerp(target, start, _distance);
+			target.y = this.transform.position.y;
+			this.transform.position = target;
+
 			_distance -= Time.deltaTime;
 		}
-	}
-
-	void UpdateLaneIndex()
-	{
-		if (Input.GetKeyDown(KeyCode.A))
+		else if (Input.GetKeyDown(KeyCode.A))
 		{
-			_preLaneIndex = _laneIndex;
-			if (_laneIndex > 0)
+			_distance = 1.0f;
+			_laneIndexPrev = _laneIndex--;
+
+			if (_laneIndex < 0)
 			{
-				_laneIndex--;
+				_laneIndex = _viewPositions.Length - 1;
 			}
-			else
-			{
-				_laneIndex = _laneCameraPositions.Length - 1;
-			}
-			_distance = 1;
 		}
 		else if (Input.GetKeyDown(KeyCode.D))
 		{
-			_preLaneIndex = _laneIndex;
-			if (_laneIndex < _laneCameraPositions.Length - 1)
-			{
-				_laneIndex++;
-			}
-			else
+			_distance = 1.0f;
+			_laneIndexPrev = _laneIndex++;
+
+			if (_laneIndex >= _viewPositions.Length)
 			{
 				_laneIndex = 0;
 			}
-			_distance = 1;
 		}
 
+		this.transform.LookAt(_lookAt.position);
 	}
 }
