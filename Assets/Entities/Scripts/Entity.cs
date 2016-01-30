@@ -19,4 +19,10 @@ public class Entity : MonoBehaviour
 {
 	public EntityType _entityType;
 	public EntityState _entityState;
+
+	public void Kill()
+	{
+		_entityState = EntityState.Dead;
+		WaveManager.AliveEnemies--;
+	}
 }
