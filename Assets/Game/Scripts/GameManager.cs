@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections;
 
 public enum GameState
 {
@@ -15,6 +14,8 @@ public enum GameState
 public class GameManager : MonoBehaviour
 {
 	GameState _currentState = GameState.None;
+
+	public static GameState CurrentState { get { return Singleton._currentState; } }
 
 	private static GameManager Singleton { get; set; }
 
