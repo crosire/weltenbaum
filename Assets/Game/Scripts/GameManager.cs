@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
 
 		Singleton = this;
 	}
+
 	void Start()
 	{
 		SwitchGameState(GameState.Menu);
@@ -30,7 +31,7 @@ public class GameManager : MonoBehaviour
 
 	void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.P) && (_currentState == GameState.Running || _currentState == GameState.Paused))
+		if ((Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape)) && (_currentState == GameState.Running || _currentState == GameState.Paused))
 		{
 			SwitchGameState(_currentState == GameState.Paused ? GameState.Running : GameState.Paused);
 		}
