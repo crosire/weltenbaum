@@ -4,11 +4,11 @@ using System.Collections;
 
 public class CameraMovement : MonoBehaviour
 {
-	public Transform _cameraVocus;
+	public Transform _cameraFocus;
 	public Transform[] _lanePositions;
 	int _laneIndex = 0;
 
-	public int LaneIndex{ get; private set; }
+	public int LaneIndex { get; private set; }
 
 	void Start()
 	{
@@ -16,7 +16,7 @@ public class CameraMovement : MonoBehaviour
 
 	void Update()
 	{
-		this.transform.DOLookAt(_cameraVocus.transform.position, 0);
+		this.transform.DOLookAt(_cameraFocus.transform.position, 0);
 		UpdateLaneIndex();
 
 	}
