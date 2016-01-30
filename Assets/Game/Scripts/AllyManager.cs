@@ -16,10 +16,11 @@ public class AllyManager : MonoBehaviour
 		_cameraMovement = GameObject.Find("Camera").GetComponent<CameraMovement>();
 	}
 
-	public void OnGesture1()
+	public void Spawn(int type)
 	{
-		var obj = (GameObject)Instantiate(_allies[0], _alliesSpawnpoints[_cameraMovement.LaneIndex].position, Quaternion.identity);
+		var instance = (GameObject)Instantiate(_allies[type], _alliesSpawnpoints[_cameraMovement.LaneIndex].position, Quaternion.identity);
 
-		obj.GetComponent<PathFollowAgent>().LaneIndex = _cameraMovement.LaneIndex;
+		instance.transform.SetParent(this.transform);
+		instance.GetComponent<PathFollowAgent>().LaneIndex = _cameraMovement.LaneIndex;
 	}
 }
