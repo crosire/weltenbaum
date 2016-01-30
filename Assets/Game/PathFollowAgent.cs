@@ -11,7 +11,7 @@ public class PathFollowAgent : MonoBehaviour
 	bool _isStopped = false;
 
 	public int LaneIndex { get; set; }
-	public int WaypointIndex { get; private set; }
+	public int NextWaypointIndex { get; private set; }
 
 	void Awake()
 	{
@@ -36,11 +36,9 @@ public class PathFollowAgent : MonoBehaviour
 			_isStopped = false;
 		}
 
-		var waypoint = LaneManager.GetWaypoint(LaneIndex, WaypointIndex);
-
 		if (_agent.remainingDistance < 1.0f)
 		{
-			_agent.destination = LaneManager.GetWaypoint(LaneIndex, ++WaypointIndex);
+			_agent.destination = LaneManager.GetWaypoint(LaneIndex, NextWaypointIndex++);
 		}
 	}
 }
