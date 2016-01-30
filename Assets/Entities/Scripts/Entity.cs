@@ -10,6 +10,7 @@ public enum EntityType
 
 public enum EntityState
 {
+	Idle,
 	Walk,
 	Fight,
 	Dead
@@ -23,6 +24,18 @@ public class Entity : MonoBehaviour
 	public void Kill()
 	{
 		_entityState = EntityState.Dead;
+
 		WaveManager.AliveEnemies--;
+	}
+
+	public void OnReachedLaneBegin()
+	{
+		_entityState = EntityState.Idle;
+	}
+	public void OnReachedLaneEnd()
+	{
+		_entityState = EntityState.Idle;
+
+		GameManager.SwitchGameState(GameState.Lost);
 	}
 }

@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _entityType: 0
-  _entityState: 0
+  _entityState: 1
 --- !u!114 &11486212
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -133,6 +133,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 88bd9a20b0c807841911e50a811fe0ce, type: 2}
+    - target: {fileID: 0}
+      propertyPath: _entityState
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 111406}

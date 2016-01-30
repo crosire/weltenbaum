@@ -18,12 +18,11 @@ public class LaneManager : MonoBehaviour
 
 	public static Vector3 GetWaypoint(int lane, int index)
 	{
-		if (index >= Singleton._lanes[lane].Waypoints.Length)
-		{
-			index = Singleton._lanes[lane].Waypoints.Length - 1;
-		}
-
 		return Singleton._lanes[lane].Waypoints[index].position;
+	}
+	public static int GetWaypointCount(int lane)
+	{
+		return Singleton._lanes[lane].Waypoints.Length;
 	}
 
 	void Awake()

@@ -4,41 +4,68 @@ using System.Collections;
 public class PathFollowAgent : MonoBehaviour
 {
 	#region Inspector Variables
+	[SerializeField]
+	bool _reversed = false;
 	#endregion
 
 	Entity _entity;
-	NavMeshAgent _agent;
-	bool _isStopped = false;
+	NavMeshAgent _navagent;
+	int _laneIndex = 0;
+	bool _stopped = false;
 
-	public int LaneIndex { get; set; }
+	public int LaneIndex
+	{
+		get
+		{
+			return _laneIndex;
+		}
+		set
+		{
+			_laneIndex = value;
+			NextWaypointIndex = _reversed ? LaneManager.GetWaypointCount(LaneIndex) - 1 : 0;
+		}
+	}
 	public int NextWaypointIndex { get; private set; }
 
 	void Awake()
 	{
 		_entity = GetComponent<Entity>();
-		_agent = GetComponent<NavMeshAgent>();
+		_navagent = GetComponent<NavMeshAgent>();
+
+		LaneIndex = 0;
 	}
 
 	void Update()
 	{
 		if (_entity._entityState != EntityState.Walk)
 		{
-			if (!_isStopped)
+			if (!_stopped)
 			{
-				_agent.Stop();
-				_isStopped = true;
+				_stopped = true;
+				_navagent.Stop();
 			}
 			return;
 		}
-		else if (_isStopped)
+		else if (_stopped)
 		{
-			_agent.Resume();
-			_isStopped = false;
+			_stopped = false;
+			_navagent.Resume();
 		}
 
-		if (_agent.remainingDistance < 1.0f)
+		if (_navagent.remainingDistance < 1.0f)
 		{
-			_agent.destination = LaneManager.GetWaypoint(LaneIndex, NextWaypointIndex++);
+			if (NextWaypointIndex < 0)
+			{
+				_entity.OnReachedLaneBegin();
+				return;
+			}
+			if (NextWaypointIndex >= LaneManager.GetWaypointCount(LaneIndex))
+			{
+				_entity.OnReachedLaneEnd();
+				return;
+			}
+
+			_navagent.destination = LaneManager.GetWaypoint(LaneIndex, _reversed ? NextWaypointIndex-- : NextWaypointIndex++);
 		}
 	}
 }
