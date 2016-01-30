@@ -41,7 +41,7 @@ public class WaveManager : MonoBehaviour
 	void SpawnWave()
 	{
 		_aliveEnemies = _wave[_finishedWaves]._entities.Length;
-		for (int i = 0; i < _wave[_finishedWaves]; i++)
+		for (int i = 0; i < _wave[_finishedWaves]._entities.Length; i++)
 		{
 			GameObject _temp = Instantiate(_enemies[0], _spawnPoints[0].transform.position, Quaternion.identity) as GameObject;
 			_temp.transform.parent = _entitiesSpawnpoint[0].transform;
