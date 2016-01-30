@@ -10,13 +10,19 @@ public enum EntityType
 
 public enum EntityState
 {
-	walk,
-	fight,
-	dead
+	Walk,
+	Fight,
+	Dead
 }
 
 public class Entity
 {
 	public EntityType _entityType;
 	public EntityState _entityState;
+
+	public void Kill()
+	{
+		_entityState = EntityState.Dead;
+		WaveManager.AliveEnemies--;
+	}
 }
