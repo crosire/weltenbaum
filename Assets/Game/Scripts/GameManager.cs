@@ -6,13 +6,13 @@ public enum GameState
 	None,
 	Menu,
 	Running,
-	Paused,
 	Won,
 	Lost,
 }
 
 public class GameManager : MonoBehaviour
 {
+	bool _paused = false;
 	GameState _currentState = GameState.None;
 
 	private static GameManager Singleton { get; set; }
@@ -23,7 +23,6 @@ public class GameManager : MonoBehaviour
 
 		Singleton = this;
 	}
-
 	void Start()
 	{
 		SwitchGameState(GameState.Menu);
@@ -31,9 +30,10 @@ public class GameManager : MonoBehaviour
 
 	void Update()
 	{
-		if ((Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape)) && (_currentState == GameState.Running || _currentState == GameState.Paused))
+		if ((Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape)) && _currentState == GameState.Running)
 		{
-			SwitchGameState(_currentState == GameState.Paused ? GameState.Running : GameState.Paused);
+			_paused = !_paused;
+			Time.timeScale = _paused ? 0.0f : 1.0f;
 		}
 	}
 

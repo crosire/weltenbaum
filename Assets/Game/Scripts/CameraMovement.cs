@@ -24,15 +24,7 @@ public class CameraMovement : MonoBehaviour
 	{
 		if (_distance > 0.0f)
 		{
-			var start = _viewPositions[_laneIndexPrev].position;
-			var target = _viewPositions[_laneIndex].position;
-
-			start.y = 0.0f;
-			target.y = 0.0f;
-
-			target = Vector3.Slerp(target, start, _distance);
-			target.y = this.transform.position.y;
-			this.transform.position = target;
+			this.transform.position = Vector3.Slerp(_viewPositions[_laneIndex].position, _viewPositions[_laneIndexPrev].position, _distance);
 
 			_distance -= Time.deltaTime;
 		}
