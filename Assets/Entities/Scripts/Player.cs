@@ -9,16 +9,18 @@ public class Player : MonoBehaviour
 
 	void Start()
 	{
-	
+
 	}
 
 	void Update()
 	{
-		
+
 	}
 
 	public void OnGesture1()
 	{
-		Instantiate(_allies[0], _alliesSpawnpoint[_cameraMovement.LaneIndex].transform.position, Quaternion.identity);
+		var obj = (GameObject)Instantiate(_allies[0], _alliesSpawnpoint[_cameraMovement.LaneIndex].transform.position, Quaternion.identity);
+
+		obj.GetComponent<PathFollowAgent>().LaneIndex = _cameraMovement.LaneIndex;
 	}
 }
