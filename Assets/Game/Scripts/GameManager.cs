@@ -4,7 +4,8 @@ using System.Collections;
 
 public enum GameState
 {
-	Title,
+	None,
+	Menu,
 	Running,
 	Paused,
 	Won,
@@ -13,7 +14,7 @@ public enum GameState
 
 public class GameManager : MonoBehaviour
 {
-	GameState _currentState = GameState.Title;
+	GameState _currentState = GameState.None;
 
 	private static GameManager Singleton { get; set; }
 
@@ -25,8 +26,7 @@ public class GameManager : MonoBehaviour
 	}
 	void Start()
 	{
-		// Load user interface
-		SceneManager.LoadScene("UI", LoadSceneMode.Additive);
+		SwitchGameState(GameState.Menu);
 	}
 
 	IEnumerator LoadSceneAndSetActive(string name)
@@ -43,9 +43,17 @@ public class GameManager : MonoBehaviour
 			return;
 		}
 
-		Singleton.StartCoroutine(Singleton.LoadSceneAndSetActive("Game (" + state + ")"));
+		// Load new scene
+		if (state != GameState.None)
+		{
+			Singleton.StartCoroutine(Singleton.LoadSceneAndSetActive("Game (" + state + ")"));
+		}
 
-		SceneManager.UnloadScene("Game (" + Singleton._currentState + ")");
+		// Unload previous scene
+		if (Singleton._currentState != GameState.None)
+		{
+			SceneManager.UnloadScene("Game (" + Singleton._currentState + ")");
+		}
 
 		Singleton._currentState = state;
 	}
