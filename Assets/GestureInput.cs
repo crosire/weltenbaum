@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using System.Linq;
 using System.Collections.Generic;
 
@@ -15,6 +16,7 @@ public struct Gesture
 {
 	public string Name;
 	public GestureDirection[] Directions;
+	public UnityEvent Callback;
 }
 
 public class GestureInput : MonoBehaviour
@@ -117,6 +119,8 @@ public class GestureInput : MonoBehaviour
 			if (matches.Count == 1)
 			{
 				Debug.Log("Match: " + matches.First().Name);
+
+				matches.First().Callback.Invoke();
 			}
 			else if (matches.Count == 0)
 			{
