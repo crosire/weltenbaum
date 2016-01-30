@@ -7,7 +7,6 @@ public enum EntityType
 	Type1,
 	Type2
 }
-
 public enum EntityState
 {
 	Idle,
@@ -16,25 +15,52 @@ public enum EntityState
 	Dead
 }
 
+[RequireComponent(typeof(Collider))]
+[RequireComponent(typeof(Rigidbody))]
 public class Entity : MonoBehaviour
 {
-	public EntityType _entityType;
-	public EntityState _entityState;
+	#region Inspector Variables
+	[SerializeField]
+	EntityType _type;
+	[SerializeField]
+	EntityState _state;
+	[SerializeField]
+	bool _friendly;
+	#endregion
+
+	public EntityType Type { get { return _type; } }
+	public EntityState State { get { return _state; } }
 
 	public void Kill()
 	{
-		_entityState = EntityState.Dead;
+		_state = EntityState.Dead;
 
 		WaveManager.AliveEnemies--;
+	}
+	public void Fight(Entity target)
+	{
+		_state = EntityState.Fight;
+	}
+
+	void OnTriggerEnter(Collider other)
+	{
+		var target = other.gameObject.GetComponent<Entity>();
+
+		if (target == null || target._friendly == _friendly)
+		{
+			return;
+		}
+
+		Fight(target);
 	}
 
 	public void OnReachedLaneBegin()
 	{
-		_entityState = EntityState.Idle;
+		_state = EntityState.Idle;
 	}
 	public void OnReachedLaneEnd()
 	{
-		_entityState = EntityState.Idle;
+		_state = EntityState.Idle;
 
 		GameManager.SwitchGameState(GameState.Lost);
 	}
