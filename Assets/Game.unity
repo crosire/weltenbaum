@@ -187,7 +187,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!114 &176217577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,9 +300,8 @@ Transform:
   - {fileID: 295535452}
   - {fileID: 550092657}
   - {fileID: 578817619}
-  - {fileID: 1867418129}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1 &550092656
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,7 +517,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!1 &1050928555
 GameObject:
   m_ObjectHideFlags: 0
@@ -684,7 +683,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1867418129}
   m_Layer: 0
-  m_Name: Viewpoints
+  m_Name: Camera Viewpoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -704,8 +703,8 @@ Transform:
   - {fileID: 1193564207}
   - {fileID: 959617648}
   - {fileID: 1050928556}
-  m_Father: {fileID: 377025025}
-  m_RootOrder: 5
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
 --- !u!1 &1904210894
 GameObject:
   m_ObjectHideFlags: 0

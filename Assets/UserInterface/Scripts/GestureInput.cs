@@ -3,7 +3,6 @@ using UnityEngine.Events;
 using System.Linq;
 using System.Collections.Generic;
 
-[System.Serializable]
 public enum GestureDirection
 {
 	Up,

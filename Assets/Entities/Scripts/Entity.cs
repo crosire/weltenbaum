@@ -8,7 +8,6 @@ public enum EntityType
 	Type1,
 	Type2
 }
-
 public enum EntityState
 {
 	Idle,
@@ -17,57 +16,54 @@ public enum EntityState
 	Dead
 }
 
-[RequireComponent(typeof(Collider))]
-[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Collider), typeof(Rigidbody))]
 public class Entity : MonoBehaviour
 {
 	#region Inspector Variables
-
 	[SerializeField]
 	EntityType _type;
 	[SerializeField]
 	EntityState _state;
 	[SerializeField]
 	bool _friendly;
-
 	#endregion
 
 	public EntityType Type { get { return _type; } }
-
 	public EntityState State { get { return _state; } }
 
 	public void Kill()
 	{
+		_state = EntityState.Dead;
+
 		if (!_friendly)
 		{
-			WaveManager.AliveEnemies--;	
+			EnemyManager.AliveEnemies--;
 		}
-		_state = EntityState.Dead;
+
 		GetComponents<BoxCollider>()[0].enabled = false;
+
 		DOTween.Sequence()
 			.AppendInterval(.5f)
 			.Append(transform.DOLocalMoveY(-1f, 6f))
-			.OnComplete(() => Destroy(this.gameObject));	
+			.OnComplete(() => Destroy(this.gameObject));
 	}
-
 	public void Fight(Entity target)
 	{
 		_state = EntityState.Fight;
 
-		//If the same two types collide with each other than the enemy wins. This is a feature!
-		if (target.Type == this.Type && _friendly)
+		if (target.Type == Type && _friendly)
 		{
 			Kill();
 		}
-		if (this.Type == EntityType.Type0 && target.Type == EntityType.Type2)
+		if (Type == EntityType.Type0 && target.Type == EntityType.Type2)
 		{
 			Kill();
 		}
-		if (this.Type == EntityType.Type1 && target.Type == EntityType.Type0)
+		if (Type == EntityType.Type1 && target.Type == EntityType.Type0)
 		{
 			Kill();
 		}
-		if (this.Type == EntityType.Type2 && target.Type == EntityType.Type1)
+		if (Type == EntityType.Type2 && target.Type == EntityType.Type1)
 		{
 			Kill();
 		}
@@ -91,7 +87,6 @@ public class Entity : MonoBehaviour
 	{
 		_state = EntityState.Idle;
 	}
-
 	public void OnReachedLaneEnd()
 	{
 		_state = EntityState.Idle;

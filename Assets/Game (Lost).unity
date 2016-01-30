@@ -96,7 +96,7 @@ GameObject:
   - 114: {fileID: 837383269}
   - 114: {fileID: 837383268}
   m_Layer: 0
-  m_Name: EventSystem
+  m_Name: UI Input
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -158,7 +158,7 @@ GameObject:
   - 114: {fileID: 1064453036}
   - 114: {fileID: 1064453035}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -4,10 +4,10 @@ using System.Collections;
 [System.Serializable]
 public struct Wave
 {
-	public int _entityType0, _entityType1, _entityType2;
+	public int AmountType0, AmountType1, AmountType2;
 }
 
-public class WaveManager : MonoBehaviour
+public class EnemyManager : MonoBehaviour
 {
 	#region Inspector Variables
 	[SerializeField]
@@ -22,7 +22,7 @@ public class WaveManager : MonoBehaviour
 
 	public static int AliveEnemies { get; set; }
 
-	private static WaveManager Singleton { get; set; }
+	private static EnemyManager Singleton { get; set; }
 
 	void Awake()
 	{
@@ -41,7 +41,7 @@ public class WaveManager : MonoBehaviour
 
 	void SpawnWave()
 	{
-		_aliveEnemies = _waves[_finishedWaves]._entityType0 + _waves[_finishedWaves]._entityType1 + _waves[_finishedWaves]._entityType2;
+		_aliveEnemies = _waves[_finishedWaves].AmountType0 + _waves[_finishedWaves].AmountType1 + _waves[_finishedWaves].AmountType2;
 
 		for (int i = 0; i < _aliveEnemies; i++)
 		{
@@ -56,6 +56,5 @@ public class WaveManager : MonoBehaviour
 		{
 			GameManager.SwitchGameState(GameState.Won);
 		}
-
 	}
 }

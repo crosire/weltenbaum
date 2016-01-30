@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Player : MonoBehaviour
+public class AllyManager : MonoBehaviour
 {
 	#region Inspector Variables
 	[SerializeField]
