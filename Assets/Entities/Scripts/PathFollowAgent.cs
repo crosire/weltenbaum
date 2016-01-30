@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
 
+[RequireComponent(typeof(Entity), typeof(NavMeshAgent))]
 public class PathFollowAgent : MonoBehaviour
 {
 	#region Inspector Variables
