@@ -85,66 +85,6 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &342758853
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 342758854}
-  m_Layer: 0
-  m_Name: Allies
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &342758854
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 342758853}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 858730174}
-  - {fileID: 1295454014}
-  - {fileID: 1982911578}
-  m_Father: {fileID: 777409487}
-  m_RootOrder: 1
---- !u!1 &723788573
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 723788574}
-  m_Layer: 0
-  m_Name: Enemy
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &723788574
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 723788573}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1325451014}
-  - {fileID: 1379460626}
-  - {fileID: 1518465700}
-  m_Father: {fileID: 777409487}
-  m_RootOrder: 0
 --- !u!1 &777409486
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,7 +94,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 777409487}
   m_Layer: 0
-  m_Name: Spawn Points
+  m_Name: Spawn Points Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -170,37 +110,11 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 723788574}
-  - {fileID: 342758854}
+  - {fileID: 1325451014}
+  - {fileID: 1379460626}
+  - {fileID: 1518465700}
   m_Father: {fileID: 0}
   m_RootOrder: 1
---- !u!1 &858730173
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 858730174}
-  m_Layer: 0
-  m_Name: Spawn 0
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &858730174
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 858730173}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 15, z: -26.49}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 342758854}
-  m_RootOrder: 0
 --- !u!1 &991589381
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,25 +173,20 @@ MonoBehaviour:
   - {fileID: 111406, guid: 88ed3dd428b419844a4ddb14d3bf9c61, type: 2}
   - {fileID: 111406, guid: 88ed3dd428b419844a4ddb14d3bf9c61, type: 2}
   - {fileID: 111406, guid: 88ed3dd428b419844a4ddb14d3bf9c61, type: 2}
-  _allies: []
-  _enemySpawnpoint:
+  _entitiesSpawnpoint:
   - {fileID: 1325451013}
   - {fileID: 1379460625}
   - {fileID: 1518465699}
-  _allySpawnpoint:
-  - {fileID: 858730173}
-  - {fileID: 1295454013}
-  - {fileID: 1982911577}
   _waves:
-  - _amountType1: 5
-    _amountType2: 7
-    _amountType3: 24
-  - _amountType1: 9
-    _amountType2: 42
-    _amountType3: 71
-  - _amountType1: 10
-    _amountType2: 51
-    _amountType3: 106
+  - _entityType0: 8
+    _entityType1: 6
+    _entityType2: 8
+  - _entityType0: 18
+    _entityType1: 15
+    _entityType2: 83
+  - _entityType0: 59
+    _entityType1: 5
+    _entityType2: 264
 --- !u!4 &1143370274
 Transform:
   m_ObjectHideFlags: 0
@@ -292,33 +201,6 @@ Transform:
   - {fileID: 991589382}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!1 &1295454013
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1295454014}
-  m_Layer: 0
-  m_Name: Spawn 1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1295454014
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1295454013}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 15, z: 25.7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 342758854}
-  m_RootOrder: 1
 --- !u!1 &1325451013
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,7 +226,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 15, z: -26.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 723788574}
+  m_Father: {fileID: 777409487}
   m_RootOrder: 0
 --- !u!1 &1379460625
 GameObject:
@@ -371,7 +253,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 15, z: 25.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 723788574}
+  m_Father: {fileID: 777409487}
   m_RootOrder: 1
 --- !u!1 &1518465699
 GameObject:
@@ -398,7 +280,7 @@ Transform:
   m_LocalPosition: {x: -27.84, y: 15, z: 2.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 723788574}
+  m_Father: {fileID: 777409487}
   m_RootOrder: 2
 --- !u!1 &1635314757
 GameObject:
@@ -427,30 +309,3 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1143370274}
   m_RootOrder: 0
---- !u!1 &1982911577
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1982911578}
-  m_Layer: 0
-  m_Name: Spawn 2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1982911578
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1982911577}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.84, y: 15, z: 2.8}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 342758854}
-  m_RootOrder: 2
