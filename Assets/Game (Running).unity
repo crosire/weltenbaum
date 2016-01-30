@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 8422685}
   m_Layer: 0
-  m_Name: Lane 1 Waypoint 0
+  m_Name: Lane 2 Waypoint 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -107,7 +107,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 8422684}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.15, y: 2.87, z: -89.6}
+  m_LocalPosition: {x: -11.07, y: 1.4, z: -95.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 635520752}
@@ -157,8 +157,8 @@ MonoBehaviour:
   - {fileID: 111406, guid: 1b7e233ec3dbc2145942c5c67c90307c, type: 2}
   _alliesSpawnpoints:
   - {fileID: 453220124}
-  - {fileID: 1293519708}
   - {fileID: 1504575412}
+  - {fileID: 1293519708}
   _cameraMovement: {fileID: 0}
 --- !u!1 &252137414
 GameObject:
@@ -205,6 +205,33 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &256598406
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 256598407}
+  m_Layer: 0
+  m_Name: Lane 1 Waypoint 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &256598407
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 256598406}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 18.26, y: 20.02, z: 18.27}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1057775043}
+  m_RootOrder: 2
 --- !u!1 &277758860
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,11 +254,38 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 277758860}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -99.62, y: 2.87, z: 57.24}
+  m_LocalPosition: {x: -102.42, y: 3.58, z: 59.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 747872957}
   m_RootOrder: 0
+--- !u!1 &332543947
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 332543948}
+  m_Layer: 0
+  m_Name: Lane 0 Waypoint 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &332543948
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 332543947}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -18.36, y: 20.37, z: 11.78}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 747872957}
+  m_RootOrder: 3
 --- !u!1 &394924862
 GameObject:
   m_ObjectHideFlags: 0
@@ -241,7 +295,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 394924863}
   m_Layer: 0
-  m_Name: Lane 2 Waypoint 0
+  m_Name: Lane 1 Waypoint 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -254,7 +308,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 394924862}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 102, y: 2.87, z: 60.6}
+  m_LocalPosition: {x: 115.16, y: 1.28, z: 66.88}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1057775043}
@@ -281,7 +335,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 397583662}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -74.62, y: 7.83, z: 42.91}
+  m_LocalPosition: {x: -77.62, y: 7.83, z: 42.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 747872957}
@@ -480,7 +534,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 635520752}
   m_Layer: 0
-  m_Name: Waypoints Lane 1
+  m_Name: Waypoints Lane 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -497,35 +551,38 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8422685}
+  - {fileID: 1669920784}
+  - {fileID: 645432118}
+  - {fileID: 1804530039}
   - {fileID: 1293519708}
   m_Father: {fileID: 1941247777}
-  m_RootOrder: 1
---- !u!1 &637891856
+  m_RootOrder: 2
+--- !u!1 &645432117
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 637891857}
+  - 4: {fileID: 645432118}
   m_Layer: 0
-  m_Name: Lane 0 Waypoint 2
+  m_Name: Lane 2 Waypoint 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &637891857
+--- !u!4 &645432118
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 637891856}
+  m_GameObject: {fileID: 645432117}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -48.71, y: 10.35, z: 31.8}
+  m_LocalPosition: {x: 20.93, y: 9.16, z: -43.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 747872957}
+  m_Father: {fileID: 635520752}
   m_RootOrder: 2
 --- !u!1 &747872956
 GameObject:
@@ -554,8 +611,8 @@ Transform:
   m_Children:
   - {fileID: 277758861}
   - {fileID: 397583663}
-  - {fileID: 637891857}
   - {fileID: 1179699460}
+  - {fileID: 332543948}
   - {fileID: 453220124}
   m_Father: {fileID: 1941247777}
   m_RootOrder: 0
@@ -672,7 +729,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1057775043}
   m_Layer: 0
-  m_Name: Waypoints Lane 2
+  m_Name: Waypoints Lane 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -689,9 +746,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 394924863}
+  - {fileID: 1841834610}
+  - {fileID: 256598407}
   - {fileID: 1504575412}
   m_Father: {fileID: 1941247777}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!1 &1143370272
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,8 +784,8 @@ MonoBehaviour:
   - {fileID: 111406, guid: 44405d5b0d9d9024a930c8b3fd5bcf28, type: 2}
   _enemiesSpawnpoints:
   - {fileID: 277758861}
-  - {fileID: 8422685}
   - {fileID: 394924863}
+  - {fileID: 8422685}
   _waves:
   - SpawnInterval: 1
     SpawnAmounts: 020000000300000001000000
@@ -751,7 +810,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1179699460}
   m_Layer: 0
-  m_Name: Lane 0 Waypoint 3
+  m_Name: Lane 0 Waypoint 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -764,11 +823,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1179699459}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30.09, y: 14.26, z: 21.81}
+  m_LocalPosition: {x: -40.19, y: 10.16, z: 26.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 747872957}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!1 &1194089285
 GameObject:
   m_ObjectHideFlags: 0
@@ -912,7 +971,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1293519708}
   m_Layer: 0
-  m_Name: Lane 1 Waypoint 1
+  m_Name: Lane 2 Waypoint 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -929,7 +988,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 635520752}
-  m_RootOrder: 1
+  m_RootOrder: 4
 --- !u!1 &1504575411
 GameObject:
   m_ObjectHideFlags: 0
@@ -939,7 +998,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1504575412}
   m_Layer: 0
-  m_Name: Lane 2 Waypoint 1
+  m_Name: Lane 1 Waypoint 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -952,7 +1011,101 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1504575411}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.7, y: 26.11, z: 8.7}
+  m_LocalPosition: {x: 7.66, y: 26.31, z: 6.47}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1057775043}
+  m_RootOrder: 3
+--- !u!1 &1669920783
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1669920784}
+  m_Layer: 0
+  m_Name: Lane 2 Waypoint 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1669920784
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1669920783}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 17.37, y: 7.22, z: -56.76}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 635520752}
+  m_RootOrder: 1
+--- !u!1 &1804530038
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1804530039}
+  - 135: {fileID: 1804530040}
+  m_Layer: 0
+  m_Name: Lane 2 Waypoint 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1804530039
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1804530038}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.18, y: 19.2, z: -20.84}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 635520752}
+  m_RootOrder: 3
+--- !u!135 &1804530040
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1804530038}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1841834609
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1841834610}
+  m_Layer: 0
+  m_Name: Lane 1 Waypoint 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1841834610
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1841834609}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 72.03, y: 5.93, z: 35.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1057775043}
@@ -1150,8 +1303,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 747872957}
-  - {fileID: 635520752}
   - {fileID: 1057775043}
+  - {fileID: 635520752}
   m_Father: {fileID: 0}
   m_RootOrder: 2
 --- !u!114 &1941247778
@@ -1169,12 +1322,17 @@ MonoBehaviour:
   - Waypoints:
     - {fileID: 277758861}
     - {fileID: 397583663}
-    - {fileID: 637891857}
     - {fileID: 1179699460}
+    - {fileID: 332543948}
     - {fileID: 453220124}
   - Waypoints:
-    - {fileID: 8422685}
-    - {fileID: 1293519708}
-  - Waypoints:
     - {fileID: 394924863}
+    - {fileID: 1841834610}
+    - {fileID: 256598407}
     - {fileID: 1504575412}
+  - Waypoints:
+    - {fileID: 8422685}
+    - {fileID: 1669920784}
+    - {fileID: 645432118}
+    - {fileID: 1804530039}
+    - {fileID: 1293519708}

@@ -28,7 +28,7 @@ public class CameraMovement : MonoBehaviour
 
 			_distance -= Time.deltaTime;
 		}
-		else if (Input.GetKeyDown(KeyCode.A))
+		else if (Input.GetKeyDown(KeyCode.D))
 		{
 			_distance = 1.0f;
 			_laneIndexPrev = _laneIndex--;
@@ -38,7 +38,7 @@ public class CameraMovement : MonoBehaviour
 				_laneIndex = _viewPositions.Length - 1;
 			}
 		}
-		else if (Input.GetKeyDown(KeyCode.D))
+		else if (Input.GetKeyDown(KeyCode.A))
 		{
 			_distance = 1.0f;
 			_laneIndexPrev = _laneIndex++;
