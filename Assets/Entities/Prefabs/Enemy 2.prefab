@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _entityType: 1
-  _entityState: 0
+  _entityState: 1
 --- !u!195 &19564910
 NavMeshAgent:
   m_ObjectHideFlags: 1
@@ -135,6 +135,10 @@ Prefab:
       objectReference: {fileID: 2100000, guid: 6e1904c726565374dafdc8de957395e5, type: 2}
     - target: {fileID: 0}
       propertyPath: _entityType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _entityState
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
