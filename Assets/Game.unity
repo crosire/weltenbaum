@@ -340,10 +340,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cameraFocus: {fileID: 1050928556}
-  _lanePositions:
+  _laneCameraPositions:
   - {fileID: 1265082218}
   - {fileID: 1193564207}
   - {fileID: 959617648}
+  _cameraTransitionsPositions:
+  - {fileID: 1700653964}
+  - {fileID: 902987526}
+  - {fileID: 457261623}
 --- !u!1 &277758860
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,7 +607,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1867418129}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!1 &550092656
 GameObject:
   m_ObjectHideFlags: 0
@@ -924,7 +928,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 029e2bbb8cb2f3b468c3436d301a55b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneGameRunning: Game (Running)
 --- !u!4 &989332646
 Transform:
   m_ObjectHideFlags: 0
@@ -996,7 +999,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1867418129}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!1 &1057775042
 GameObject:
   m_ObjectHideFlags: 0
@@ -1293,8 +1296,8 @@ Transform:
   - {fileID: 1193564207}
   - {fileID: 902987526}
   - {fileID: 959617648}
-  - {fileID: 1050928556}
   - {fileID: 457261623}
+  - {fileID: 1050928556}
   m_Father: {fileID: 377025025}
   m_RootOrder: 5
 --- !u!1 &1904210894
