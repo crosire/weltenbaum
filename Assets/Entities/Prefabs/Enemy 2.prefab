@@ -14,6 +14,7 @@ GameObject:
   - 114: {fileID: 11417770}
   - 195: {fileID: 19564910}
   - 114: {fileID: 11400988}
+  - 65: {fileID: 6555312}
   m_Layer: 0
   m_Name: Enemy 2
   m_TagString: Untagged
@@ -78,6 +79,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &6555312
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 111406}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &11400988
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -89,6 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef538eab0421cfd41be163ad18c4d521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _reversed: 0
 --- !u!114 &11417770
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -140,6 +154,22 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: _entityState
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Size.z
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

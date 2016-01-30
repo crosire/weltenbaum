@@ -8,10 +8,11 @@ public class CameraMovement : MonoBehaviour
 	public Transform[] _lanePositions;
 	int _laneIndex = 0;
 
-	public int LaneIndex { get; private set; }
+	public int LaneIndex { get { return _laneIndex; } }
 
 	void Start()
 	{
+		this.transform.DOMove(_lanePositions[_laneIndex].transform.position, 1f);
 	}
 
 	void Update()
