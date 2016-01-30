@@ -1,25 +1,24 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class Player : MonoBehaviour
 {
-	public GameObject[] _allies;
-	public GameObject[] _alliesSpawnpoint;
-	public CameraMovement _cameraMovement;
+	#region Inspector Variables
+	[SerializeField]
+	GameObject[] _allies;
+	[SerializeField]
+	Transform[] _alliesSpawnpoints;
+	[SerializeField]
+	CameraMovement _cameraMovement;
+	#endregion
 
 	void Start()
 	{
-
-	}
-
-	void Update()
-	{
-
+		_cameraMovement = GameObject.Find("Camera").GetComponent<CameraMovement>();
 	}
 
 	public void OnGesture1()
 	{
-		var obj = (GameObject)Instantiate(_allies[0], _alliesSpawnpoint[_cameraMovement.LaneIndex].transform.position, Quaternion.identity);
+		var obj = (GameObject)Instantiate(_allies[0], _alliesSpawnpoints[_cameraMovement.LaneIndex].position, Quaternion.identity);
 
 		obj.GetComponent<PathFollowAgent>().LaneIndex = _cameraMovement.LaneIndex;
 	}

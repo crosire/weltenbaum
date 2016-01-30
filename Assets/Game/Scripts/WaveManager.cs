@@ -9,18 +9,20 @@ public struct Wave
 
 public class WaveManager : MonoBehaviour
 {
+	#region Inspector Variables
+	[SerializeField]
+	GameObject[] _enemies;
+	[SerializeField]
+	Transform[] _enemiesSpawnpoints;
+	[SerializeField]
+	Wave[] _waves;
+	#endregion
 
-	[Header("Entities")]
-	public GameObject[] _enemies;
-	public GameObject[] _entitiesSpawnpoint;
-
-	public Wave[] _waves;
-	int _finishedWaves = 0;
-	int _aliveEnemies = 0;
+	int _finishedWaves = 0, _aliveEnemies = 0;
 
 	public static int AliveEnemies { get; set; }
 
-	public static WaveManager Singleton { get; set; }
+	private static WaveManager Singleton { get; set; }
 
 	void Awake()
 	{
@@ -40,9 +42,10 @@ public class WaveManager : MonoBehaviour
 	void SpawnWave()
 	{
 		_aliveEnemies = _waves[_finishedWaves]._entityType0 + _waves[_finishedWaves]._entityType1 + _waves[_finishedWaves]._entityType2;
+
 		for (int i = 0; i < _aliveEnemies; i++)
 		{
-			Instantiate(_enemies[0], _entitiesSpawnpoint[0].transform.position, Quaternion.identity);
+			Instantiate(_enemies[0], _enemiesSpawnpoints[0].position, Quaternion.identity);
 		}
 
 		if (_finishedWaves < _waves.Length)
