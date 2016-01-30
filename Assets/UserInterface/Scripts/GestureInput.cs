@@ -34,6 +34,9 @@ public class GestureInput : MonoBehaviour
 	Gesture[] _gestures = new Gesture[0];
 	#endregion
 
+	public bool Recording { get { return _recording; } }
+	public Gesture[] Gestures { get { return _gestures; } }
+
 	bool _recording = false;
 	float _recordingLength = 0.0f;
 	readonly List<Vector2> _history = new List<Vector2>();
