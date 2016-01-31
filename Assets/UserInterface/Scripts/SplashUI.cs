@@ -31,19 +31,23 @@ public class SplashUI : MonoBehaviour
 			.Insert(0, _info.DOFade(1f, fadeLength))
 			.AppendInterval(timeout)
 			.Insert(timeout, _info.DOFade(0f, fadeLength))
-			.Append(_info2.DOFade(1f, 1f));
+			.Append(_info2.DOFade(1f, 1f))
+			.AppendInterval(1f)
+			.OnComplete(() => _ready = true);
 	}
 
 	void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Escape))
+		if (Input.anyKeyDown)
 		{
-			_sequence.Complete(true);
-			DOTween.Sequence().AppendInterval(1f).AppendCallback(() => _ready = true);
-		}
-		if (Input.anyKeyDown && _ready)
-		{
-			SceneManager.LoadSceneAsync(1);
+			if (_ready)
+			{
+				SceneManager.LoadSceneAsync(1);
+			}
+			else
+			{
+				_sequence.Complete(true);
+			}
 		}
 	}
 }
