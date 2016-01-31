@@ -47,34 +47,34 @@ public class GameManager : MonoBehaviour
 			return;
 		}
 
-		Singleton.StartCoroutine(Singleton.SwitchGameStateCoroutine(state));
+		Singleton.StartCoroutine(Singleton.SwitchGameStateCoroutine(Singleton._currentState, state));
+
+		Singleton._currentState = state;
 	}
-	IEnumerator SwitchGameStateCoroutine(GameState state)
+	IEnumerator SwitchGameStateCoroutine(GameState oldstate, GameState newstate)
 	{
 		// Load new scene
-		if (state != GameState.None)
+		if (newstate != GameState.None)
 		{
-			yield return SceneManager.LoadSceneAsync("Game (" + state + ")", LoadSceneMode.Additive);
+			yield return SceneManager.LoadSceneAsync("Game (" + newstate + ")", LoadSceneMode.Additive);
 		}
 
-		switch (_currentState)
+		switch (oldstate)
 		{
 			case GameState.Menu:
-				if (state == GameState.Running)
+				if (newstate == GameState.Running)
 				{
 					SceneManager.UnloadScene("Game (Menu)");
 				}
 				break;
 			case GameState.Won:
 			case GameState.Lost:
-				if (state == GameState.Menu)
+				if (newstate == GameState.Menu)
 				{
 					SceneManager.UnloadScene("Game (Running)");
-					SceneManager.UnloadScene("Game (" + _currentState + ")");
+					SceneManager.UnloadScene("Game (" + oldstate + ")");
 				}
 				break;
 		}
-
-		_currentState = state;
 	}
 }
