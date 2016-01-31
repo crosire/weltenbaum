@@ -16,11 +16,11 @@ public class EnemyManager : MonoBehaviour
 	Wave[] _waves;
 	#endregion
 
-	int _currentWave = -1, _remainingEnemies = 0;
+	int _currentWave = -1, _remainingEnemies = 0, _aliveEnemies = 0;
 	float _spawnTimeout = 0.0f;
 	Vector3[] _spawnpoints;
 
-	public static int AliveEnemies { get; set; }
+	public static int AliveEnemies { get { return Singleton._aliveEnemies; } set { Singleton._aliveEnemies = value; } }
 
 	private static EnemyManager Singleton { get; set; }
 
