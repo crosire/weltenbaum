@@ -326,7 +326,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7667ce3b8c4daff43ba37d9c2770b754, type: 3}
   - {fileID: 8300000, guid: 92837f758ae885342a4f8129365f48f8, type: 3}
   - {fileID: 8300000, guid: 00a13227fffa9c147ba030fad604e62e, type: 3}
-  _spawnCooldown: 2
+  _spawnCooldown: 3
 --- !u!1 &176217571
 GameObject:
   m_ObjectHideFlags: 0
@@ -1516,8 +1516,12 @@ MonoBehaviour:
   - {fileID: 111406, guid: 74805b11429fe814b9477e44826ced7c, type: 2}
   - {fileID: 111406, guid: 44405d5b0d9d9024a930c8b3fd5bcf28, type: 2}
   _waves:
-  - SpawnInterval: 1
+  - SpawnInterval: 3
     SpawnAmounts: 020000000300000001000000
+  - SpawnInterval: 2
+    SpawnAmounts: 030000000300000003000000
+  - SpawnInterval: 2
+    SpawnAmounts: 050000000500000005000000
 --- !u!4 &1143370274
 Transform:
   m_ObjectHideFlags: 0
