@@ -50,10 +50,22 @@ public class GameManager : MonoBehaviour
 			SceneManager.LoadSceneAsync("Game (" + state + ")", LoadSceneMode.Additive);
 		}
 
-		// Unload previous scene
-		if (Singleton._currentState != GameState.None)
+		switch (Singleton._currentState)
 		{
-			SceneManager.UnloadScene("Game (" + Singleton._currentState + ")");
+			case GameState.Menu:
+				if (state == GameState.Running)
+				{
+					SceneManager.UnloadScene("Game (Menu)");
+				}
+				break;
+			case GameState.Won:
+			case GameState.Lost:
+				if (state == GameState.Menu)
+				{
+					SceneManager.UnloadScene("Game (Running)");
+					SceneManager.UnloadScene("Game (" + Singleton._currentState + ")");
+				}
+				break;
 		}
 
 		Singleton._currentState = state;
