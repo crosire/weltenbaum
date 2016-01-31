@@ -4,6 +4,7 @@ using System.Collections;
 
 public enum EntityType
 {
+	Villain,
 	Type0,
 	Type1,
 	Type2
@@ -16,7 +17,7 @@ public enum EntityState
 	Dead
 }
 
-[RequireComponent(typeof(Collider), typeof(Rigidbody))]
+[RequireComponent(typeof(Collider), typeof(Rigidbody), typeof(Animator))]
 public class Entity : MonoBehaviour
 {
 	#region Inspector Variables
@@ -28,12 +29,16 @@ public class Entity : MonoBehaviour
 	bool _friendly;
 	#endregion
 
+	Animator _animator;
+
 	public EntityType Type { get { return _type; } }
 	public EntityState State { get { return _state; } }
 
 	public void Kill()
 	{
 		_state = EntityState.Dead;
+
+		_animator.SetTrigger("Die");
 
 		if (!_friendly)
 		{
@@ -50,6 +55,8 @@ public class Entity : MonoBehaviour
 	public void Fight(Entity target)
 	{
 		_state = EntityState.Fight;
+
+		_animator.SetTrigger("Fight");
 
 		if (target.Type == Type && _friendly)
 		{
@@ -69,6 +76,11 @@ public class Entity : MonoBehaviour
 		}
 
 		DOTween.Sequence().AppendInterval(1.5f).OnComplete(() => _state = EntityState.Walk);
+	}
+
+	void Awake()
+	{
+		_animator = GetComponent<Animator>();
 	}
 
 	void OnTriggerEnter(Collider other)
