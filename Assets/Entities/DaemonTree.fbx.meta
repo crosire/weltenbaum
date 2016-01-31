@@ -1,49 +1,55 @@
 fileFormatVersion: 2
-guid: 286784cee06a37d44a1c91155933e6a1
-timeCreated: 1454177020
+guid: 91f0392e2f8b4ae448826e42ad86504b
+timeCreated: 1454245335
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: Body
-    100002: Cloth1
-    100004: //RootNode
-    100006: polySurface11
-    100008: polySurface12
-    100010: polySurface12 1
-    100012: polySurface13
-    100014: polySurface14
-    100016: polySurface15
-    100018: polySurface16
-    100020: transform14
-    100022: transform15
-    100024: transform16
-    100026: transform17
-    100028: transform18
-    100030: transform19
-    100032: transform20
-    100034: transform21
-    400000: Body
-    400002: Cloth1
-    400004: //RootNode
-    400006: polySurface11
-    400008: polySurface12
-    400010: polySurface12 1
-    400012: polySurface13
-    400014: polySurface14
-    400016: polySurface15
-    400018: polySurface16
-    400020: transform14
-    400022: transform15
-    400024: transform16
-    400026: transform17
-    400028: transform18
-    400030: transform19
-    400032: transform20
-    400034: transform21
-    2300000: polySurface16
-    3300000: polySurface16
-    4300000: polySurface16
+    100000: polySurface17
+    100002: polySurface19
+    100004: polySurface21
+    100006: polySurface22
+    100008: polySurface23
+    100010: polySurface30
+    100012: polySurface34
+    100014: polySurface36
+    100016: //RootNode
+    100018: trunk_part5
+    400000: polySurface17
+    400002: polySurface19
+    400004: polySurface21
+    400006: polySurface22
+    400008: polySurface23
+    400010: polySurface30
+    400012: polySurface34
+    400014: polySurface36
+    400016: //RootNode
+    400018: trunk_part5
+    2300000: polySurface17
+    2300002: polySurface19
+    2300004: polySurface21
+    2300006: polySurface22
+    2300008: polySurface23
+    2300010: polySurface30
+    2300012: polySurface34
+    2300014: polySurface36
+    3300000: polySurface17
+    3300002: polySurface19
+    3300004: polySurface21
+    3300006: polySurface22
+    3300008: polySurface23
+    3300010: polySurface30
+    3300012: polySurface34
+    3300014: polySurface36
+    4300000: polySurface21
+    4300002: polySurface30
+    4300004: polySurface34
+    4300006: polySurface19
+    4300008: polySurface36
+    4300010: polySurface23
+    4300012: polySurface22
+    4300014: polySurface17
+    7400000: Take 001
     9500000: //RootNode
   materials:
     importMaterials: 1
