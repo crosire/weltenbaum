@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-[RequireComponent(typeof(LineRenderer), typeof(GestureInput))]
+[RequireComponent(typeof(LineRenderer), typeof(GestureInput), typeof(AudioSource))]
 public class GestureVisualization : MonoBehaviour
 {
 	#region Inspector Variables
@@ -13,15 +13,17 @@ public class GestureVisualization : MonoBehaviour
 	Color _lineColorOnSuccess = Color.green;
 	#endregion
 
+	AudioSource _audio;
 	LineRenderer _renderer;
 	GestureInput _gestureInput;
 	int _vertexCount = 0;
 	Vector3 _lastVertex;
 	float _timeout = 0.0f;
-	bool _wasRecordingLastFrame = false;
+	bool _wasRecordingLastFrame = false, _wasSuccessfulGestureLastFrame = false;
 
 	void Awake()
 	{
+		_audio = GetComponent<AudioSource>();
 		_renderer = GetComponent<LineRenderer>();
 		_gestureInput = GetComponent<GestureInput>();
 
@@ -44,6 +46,7 @@ public class GestureVisualization : MonoBehaviour
 				Reset();
 
 				_wasRecordingLastFrame = true;
+				_wasSuccessfulGestureLastFrame = false;
 			}
 
 			var vertex = Input.mousePosition;
@@ -72,7 +75,13 @@ public class GestureVisualization : MonoBehaviour
 		{
 			Reset();
 
+			if (!_wasSuccessfulGestureLastFrame)
+			{
+				OnGestureFailure();
+			}
+
 			_wasRecordingLastFrame = false;
+			_wasSuccessfulGestureLastFrame = false;
 		}
 	}
 	void Reset()
@@ -86,5 +95,11 @@ public class GestureVisualization : MonoBehaviour
 	{
 		_timeout = _successTimeout;
 		_renderer.SetColors(_lineColorOnSuccess, _lineColorOnSuccess);
+
+		_wasSuccessfulGestureLastFrame = true;
+	}
+	void OnGestureFailure()
+	{
+		_audio.Play();
 	}
 }
