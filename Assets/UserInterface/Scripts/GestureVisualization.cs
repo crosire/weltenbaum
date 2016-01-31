@@ -46,7 +46,6 @@ public class GestureVisualization : MonoBehaviour
 				Reset();
 
 				_wasRecordingLastFrame = true;
-				_wasSuccessfulGestureLastFrame = false;
 			}
 
 			var vertex = Input.mousePosition;
@@ -73,20 +72,19 @@ public class GestureVisualization : MonoBehaviour
 		}
 		else if (_wasRecordingLastFrame)
 		{
-			Reset();
-
-			if (!_wasSuccessfulGestureLastFrame)
+			if (_vertexCount >= 2 && !_wasSuccessfulGestureLastFrame)
 			{
 				OnGestureFailure();
 			}
 
-			_wasRecordingLastFrame = false;
-			_wasSuccessfulGestureLastFrame = false;
+			Reset();
 		}
 	}
 	void Reset()
 	{
 		_timeout = 0.0f;
+		_wasRecordingLastFrame = false;
+		_wasSuccessfulGestureLastFrame = false;
 		_renderer.SetColors(_lineColor, _lineColor);
 		_renderer.SetVertexCount(_vertexCount = 0);
 	}
