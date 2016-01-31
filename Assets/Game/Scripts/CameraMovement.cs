@@ -17,7 +17,8 @@ public class CameraMovement : MonoBehaviour
 
 	void Start()
 	{
-		this.transform.DOMove(_viewPositions[_laneIndex].transform.position, 1f);
+		this.transform.DOMove(_viewPositions[_laneIndex].transform.position, 5.0f);
+		this.transform.DORotateQuaternion(Quaternion.LookRotation(_lookAt.position - _viewPositions[_laneIndex].transform.position), 5.0f);
 	}
 
 	void Update()
@@ -33,6 +34,7 @@ public class CameraMovement : MonoBehaviour
 			target.y = y;
 
 			this.transform.position = target;
+			this.transform.LookAt(_lookAt.position);
 
 			_distance -= Time.deltaTime;
 		}
@@ -56,7 +58,5 @@ public class CameraMovement : MonoBehaviour
 				_laneIndex = 0;
 			}
 		}
-
-		this.transform.LookAt(_lookAt.position);
 	}
 }
