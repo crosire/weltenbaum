@@ -2524,8 +2524,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _recordingTimeout: 5
-  _recordingEpsilon: 10
-  _lineSegmentEpsilon: 5
+  _recordingEpsilon: 20
+  _lineSegmentEpsilon: 10
   _gestures:
   - Name: Spawn0
     Directions: 00000000020000000000000003000000
@@ -2563,7 +2563,7 @@ MonoBehaviour:
           m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
-  - Name: Spawn1
+  - Name: Spawn2
     Directions: 00000000030000000100000002000000
     Callback:
       m_PersistentCalls:
