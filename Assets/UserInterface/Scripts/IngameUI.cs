@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using DG.Tweening;
 
 [RequireComponent(typeof(CanvasGroup), typeof(AudioSource))]
 public class IngameUI : MonoBehaviour
 {
 	#region Inspector Variables
+	[SerializeField]
+	Text[] _cooldownTexts;
 	#endregion
 
 	AudioSource[] _audio;
@@ -22,6 +25,11 @@ public class IngameUI : MonoBehaviour
 
 	void Update()
 	{
+		for (int i = 0; i < _cooldownTexts.Length; i++)
+		{
+			_cooldownTexts[i].text = AllyManager.GetRemainingCooldown(i).ToString();
+		}
+
 		if ((GameManager.CurrentState == GameState.Won || GameManager.CurrentState == GameState.Lost) && _audio[1].volume > 0.0f)
 		{
 			_audio[1].volume -= Time.deltaTime;

@@ -26,7 +26,7 @@ public class EnemyManager : MonoBehaviour
 
 	void Awake()
 	{
-		Debug.Assert(Singleton == null, "Cannot create multiple instances of the 'GameManager' singleton class.");
+		Debug.Assert(Singleton == null, "Cannot create multiple instances of the 'EnemyManager' singleton class.");
 
 		Singleton = this;
 	}
