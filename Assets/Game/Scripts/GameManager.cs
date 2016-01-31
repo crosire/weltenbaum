@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public enum GameState
 {
@@ -46,13 +47,17 @@ public class GameManager : MonoBehaviour
 			return;
 		}
 
+		Singleton.StartCoroutine(Singleton.SwitchGameStateCoroutine(state));
+	}
+	IEnumerator SwitchGameStateCoroutine(GameState state)
+	{
 		// Load new scene
 		if (state != GameState.None)
 		{
-			SceneManager.LoadSceneAsync("Game (" + state + ")", LoadSceneMode.Additive);
+			yield return SceneManager.LoadSceneAsync("Game (" + state + ")", LoadSceneMode.Additive);
 		}
 
-		switch (Singleton._currentState)
+		switch (_currentState)
 		{
 			case GameState.Menu:
 				if (state == GameState.Running)
@@ -65,11 +70,11 @@ public class GameManager : MonoBehaviour
 				if (state == GameState.Menu)
 				{
 					SceneManager.UnloadScene("Game (Running)");
-					SceneManager.UnloadScene("Game (" + Singleton._currentState + ")");
+					SceneManager.UnloadScene("Game (" + _currentState + ")");
 				}
 				break;
 		}
 
-		Singleton._currentState = state;
+		_currentState = state;
 	}
 }
