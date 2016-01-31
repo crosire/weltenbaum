@@ -6,17 +6,21 @@ using DG.Tweening;
 public class SplashUI : MonoBehaviour
 {
 	#region Inspector Variables
+
 	[SerializeField]
-	CanvasGroup _background, _info;
+	CanvasGroup _background, _info, _info2;
+
 	#endregion
 
 	Sequence _sequence;
 	AudioSource _audio;
+	bool _ready = false;
 
 	void Awake()
 	{
 		_audio = GetComponent<AudioSource>();
 	}
+
 	void Start()
 	{
 		const float fadeLength = 5f;
@@ -26,9 +30,9 @@ public class SplashUI : MonoBehaviour
 			.Insert(0, _background.DOFade(1f, fadeLength))
 			.Insert(0, _info.DOFade(1f, fadeLength))
 			.AppendInterval(timeout)
-			.Insert(timeout, _background.DOFade(0f, fadeLength))
 			.Insert(timeout, _info.DOFade(0f, fadeLength))
-			.AppendCallback(() => SceneManager.LoadSceneAsync(1));
+			.Append(_info2.DOFade(1f, 1f))
+			.AppendCallback(() => _ready = true);
 	}
 
 	void Update()
@@ -36,6 +40,10 @@ public class SplashUI : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{
 			_sequence.Complete(true);
+		}
+		if (Input.anyKeyDown && _ready)
+		{
+			SceneManager.LoadSceneAsync(1);
 		}
 	}
 }
