@@ -19,4 +19,12 @@ public class IngameUI : MonoBehaviour
 			.Append(GetComponent<CanvasGroup>().DOFade(1.0f, _audio[0].clip.length))
 			.AppendCallback(() => _audio[1].Play());
 	}
+
+	void Update()
+	{
+		if ((GameManager.CurrentState == GameState.Won || GameManager.CurrentState == GameState.Lost) && _audio[1].volume > 0.0f)
+		{
+			_audio[1].volume -= Time.deltaTime;
+		}
+	}
 }
