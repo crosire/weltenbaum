@@ -58,6 +58,11 @@ public class Entity : MonoBehaviour
 
 		_animator.SetTrigger("Fight");
 
+		if (!_friendly)
+		{
+			EnemyManager.Fighting = true;
+		}
+
 		if (target.Type == Type && _friendly)
 		{
 			Kill();

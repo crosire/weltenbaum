@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class AllyManager : MonoBehaviour
 {
 	#region Inspector Variables
 	[SerializeField]
 	GameObject[] _allies;
+	[SerializeField]
+	AudioClip[] _spawnSounds;
 	[SerializeField]
 	float _spawnCooldown = 2.0f;
 	#endregion
@@ -12,6 +15,7 @@ public class AllyManager : MonoBehaviour
 	float[] _cooldowns;
 	Vector3[] _spawnpoints;
 	CameraMovement _cameraMovement;
+	AudioSource _audio;
 
 	private static AllyManager Singleton { get; set; }
 
@@ -25,6 +29,8 @@ public class AllyManager : MonoBehaviour
 		Debug.Assert(Singleton == null, "Cannot create multiple instances of the 'AllyManager' singleton class.");
 
 		Singleton = this;
+
+		_audio = GetComponent<AudioSource>();
 	}
 	void Start()
 	{
@@ -58,6 +64,7 @@ public class AllyManager : MonoBehaviour
 		}
 
 		_cooldowns[type] = _spawnCooldown;
+		_audio.PlayOneShot(_spawnSounds[type]);
 
 		var instance = (GameObject)Instantiate(_allies[type], _spawnpoints[_cameraMovement.LaneIndex], Quaternion.identity);
 

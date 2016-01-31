@@ -7,6 +7,7 @@ public struct Wave
 	public int[] SpawnAmounts;
 }
 
+[RequireComponent(typeof(AudioSource))]
 public class EnemyManager : MonoBehaviour
 {
 	#region Inspector Variables
@@ -17,10 +18,20 @@ public class EnemyManager : MonoBehaviour
 	#endregion
 
 	int _currentWave = -1, _remainingEnemies = 0, _aliveEnemies = 0;
-	float _spawnTimeout = 0.0f;
+	float _spawnTimeout = 0.0f, _fightingTimeout = 0.0f;
 	Vector3[] _spawnpoints;
+	AudioSource _audio;
 
-	public static int AliveEnemies { get { return Singleton._aliveEnemies; } set { Singleton._aliveEnemies = value; } }
+	public static bool Fighting
+	{
+		get { return Singleton._fightingTimeout > 0.0f; }
+		set { Singleton._fightingTimeout = 5.0f; }
+	}
+	public static int AliveEnemies
+	{
+		get { return Singleton._aliveEnemies; }
+		set { Singleton._aliveEnemies = value; }
+	}
 
 	private static EnemyManager Singleton { get; set; }
 
@@ -29,6 +40,8 @@ public class EnemyManager : MonoBehaviour
 		Debug.Assert(Singleton == null, "Cannot create multiple instances of the 'EnemyManager' singleton class.");
 
 		Singleton = this;
+
+		_audio = GetComponent<AudioSource>();
 	}
 	void Start()
 	{
@@ -75,6 +88,16 @@ public class EnemyManager : MonoBehaviour
 
 			instance.transform.SetParent(this.transform);
 			instance.GetComponent<PathFollowAgent>().LaneIndex = randomSpawnpoint;
+		}
+
+		if (_fightingTimeout > 0.0f)
+		{
+			_audio.volume += Time.deltaTime;
+			_fightingTimeout -= Time.deltaTime;
+		}
+		else
+		{
+			_audio.volume -= Time.deltaTime;
 		}
 	}
 
