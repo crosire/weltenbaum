@@ -31,8 +31,7 @@ public class SplashUI : MonoBehaviour
 			.Insert(0, _info.DOFade(1f, fadeLength))
 			.AppendInterval(timeout)
 			.Insert(timeout, _info.DOFade(0f, fadeLength))
-			.Append(_info2.DOFade(1f, 1f))
-			.AppendCallback(() => _ready = true);
+			.Append(_info2.DOFade(1f, 1f));
 	}
 
 	void Update()
@@ -40,6 +39,7 @@ public class SplashUI : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{
 			_sequence.Complete(true);
+			DOTween.Sequence().AppendInterval(1f).AppendCallback(() => _ready = true);
 		}
 		if (Input.anyKeyDown && _ready)
 		{
