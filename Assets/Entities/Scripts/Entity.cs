@@ -4,6 +4,7 @@ using System.Collections;
 
 public enum EntityType
 {
+	Villain,
 	Type0,
 	Type1,
 	Type2
