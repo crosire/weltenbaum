@@ -17,7 +17,7 @@ public enum EntityState
 	Dead
 }
 
-[RequireComponent(typeof(Collider), typeof(Rigidbody), typeof(Animator))]
+[RequireComponent(typeof(Collider), typeof(Rigidbody))]
 public class Entity : MonoBehaviour
 {
 	#region Inspector Variables
@@ -45,7 +45,7 @@ public class Entity : MonoBehaviour
 			EnemyManager.AliveEnemies--;
 		}
 
-		GetComponents<BoxCollider>()[0].enabled = false;
+		GetComponents<Collider>()[0].enabled = false;
 
 		DOTween.Sequence()
 			.AppendInterval(.5f)
@@ -85,7 +85,7 @@ public class Entity : MonoBehaviour
 
 	void Awake()
 	{
-		_animator = GetComponent<Animator>();
+		_animator = GetComponentInChildren<Animator>();
 	}
 
 	void OnTriggerEnter(Collider other)
