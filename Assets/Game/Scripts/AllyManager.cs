@@ -3,10 +3,12 @@
 public class AllyManager : MonoBehaviour
 {
 	#region Inspector Variables
+
 	[SerializeField]
 	GameObject[] _allies;
 	[SerializeField]
 	float _spawnCooldown = 2.0f;
+
 	#endregion
 
 	float[] _cooldowns;
@@ -26,6 +28,7 @@ public class AllyManager : MonoBehaviour
 
 		Singleton = this;
 	}
+
 	void Start()
 	{
 		_cameraMovement = Camera.main.GetComponent<CameraMovement>();
@@ -46,6 +49,10 @@ public class AllyManager : MonoBehaviour
 			if (_cooldowns[i] > 0.0f)
 			{
 				_cooldowns[i] -= Time.deltaTime;
+				if (Singleton._cooldowns[i] < 0f)
+				{
+					Singleton._cooldowns[i] = 0f;
+				}
 			}
 		}
 	}
