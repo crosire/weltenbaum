@@ -12,7 +12,7 @@ public class AllyManager : MonoBehaviour
 
 	void Start()
 	{
-		_cameraMovement = GameObject.Find("Camera").GetComponent<CameraMovement>();
+		_cameraMovement = Camera.main.GetComponent<CameraMovement>();
 
 		_spawnpoints = new Vector3[LaneManager.LaneCount];
 
