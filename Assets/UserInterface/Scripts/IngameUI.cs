@@ -1,13 +1,22 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using DG.Tweening;
 
+[RequireComponent(typeof(CanvasGroup), typeof(AudioSource))]
 public class IngameUI : MonoBehaviour
 {
-	public CanvasGroup _interface;
+	#region Inspector Variables
+	#endregion
 
+	AudioSource[] _audio;
+
+	void Awake()
+	{
+		_audio = GetComponents<AudioSource>();
+	}
 	void Start()
 	{
-		_interface.DOFade(1f, .5f);
+		DOTween.Sequence()
+			.Append(GetComponent<CanvasGroup>().DOFade(1.0f, _audio[0].clip.length))
+			.AppendCallback(() => _audio[1].Play());
 	}
 }
