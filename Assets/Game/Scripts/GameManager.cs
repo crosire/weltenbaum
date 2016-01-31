@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
 	bool _paused = false;
 	GameState _currentState = GameState.None;
 
+	public static GameState CurrentState { get { return Singleton._currentState; } }
+
 	private static GameManager Singleton { get; set; }
 
 	void Awake()
