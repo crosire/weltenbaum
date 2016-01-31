@@ -589,7 +589,7 @@ GameObject:
   - 114: {fileID: 503499108}
   - 114: {fileID: 503499109}
   m_Layer: 5
-  m_Name: Panel (1)
+  m_Name: Panel Summon 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1448,7 +1448,7 @@ CanvasGroup:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1056773911}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -1671,7 +1671,7 @@ GameObject:
   - 114: {fileID: 1194089289}
   - 114: {fileID: 1194089290}
   m_Layer: 5
-  m_Name: Panel (2)
+  m_Name: Panel Summon 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1815,7 +1815,7 @@ GameObject:
   - 114: {fileID: 1217470492}
   - 114: {fileID: 1217470493}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Panel Summon 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1958,7 +1958,7 @@ GameObject:
   - 114: {fileID: 1260538688}
   - 225: {fileID: 1260538687}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: Rune Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2183,7 +2183,7 @@ GameObject:
   - 114: {fileID: 1349612506}
   - 225: {fileID: 1349612505}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: Rune Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2372,7 +2372,7 @@ GameObject:
   - 114: {fileID: 1779306002}
   - 225: {fileID: 1779306001}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: Rune Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2425,7 +2425,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 3be8c944e9ed8814e8bce613c54a7a05, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d4b79a80a1d22b94293c4daf070b0374, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2564,7 +2564,7 @@ MonoBehaviour:
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
   - Name: Spawn2
-    Directions: 00000000030000000100000002000000
+    Directions: 03000000000000000200000001000000
     Callback:
       m_PersistentCalls:
         m_Calls:

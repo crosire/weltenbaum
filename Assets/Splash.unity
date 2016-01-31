@@ -96,7 +96,7 @@ GameObject:
   - 222: {fileID: 101824222}
   - 114: {fileID: 101824221}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: Rune 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -138,7 +138,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 3be8c944e9ed8814e8bce613c54a7a05, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d4b79a80a1d22b94293c4daf070b0374, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -606,7 +606,7 @@ GameObject:
   - 222: {fileID: 851342032}
   - 114: {fileID: 851342031}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Rune 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -673,7 +673,7 @@ GameObject:
   - 222: {fileID: 1337218021}
   - 114: {fileID: 1337218020}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Rune 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
