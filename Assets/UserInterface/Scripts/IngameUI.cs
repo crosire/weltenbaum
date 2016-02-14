@@ -32,7 +32,6 @@ public class IngameUI : MonoBehaviour
 		{
 			_cooldownTexts[i].text = AllyManager.GetRemainingCooldown(i).ToString("0");
 		}
-		print(_cooldownTexts[0].text);
 		if ((GameManager.CurrentState == GameState.Won || GameManager.CurrentState == GameState.Lost) && _audio[1].volume > 0.0f)
 		{
 			_audio[1].volume -= Time.deltaTime;

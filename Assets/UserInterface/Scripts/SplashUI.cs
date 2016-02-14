@@ -42,7 +42,7 @@ public class SplashUI : MonoBehaviour
 		{
 			if (_ready)
 			{
-				SceneManager.LoadSceneAsync(1);
+				GameManager.SwitchGameState(GameState.Menu);
 			}
 			else
 			{

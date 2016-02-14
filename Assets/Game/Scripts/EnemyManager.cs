@@ -112,7 +112,7 @@ public class EnemyManager : MonoBehaviour
 
 		if (_currentWave >= _waves.Length)
 		{
-			GameManager.SwitchGameState(GameState.Won);
+			GameManager.SwitchGameState(GameState.Ingame);
 			return;
 		}
 

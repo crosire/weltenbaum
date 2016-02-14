@@ -4,9 +4,9 @@ using System.Collections;
 
 public enum GameState
 {
-	None,
+	Splash,
 	Menu,
-	Running,
+	Ingame,
 	Won,
 	Lost,
 }
@@ -14,7 +14,9 @@ public enum GameState
 public class GameManager : MonoBehaviour
 {
 	bool _paused = false;
-	GameState _currentState = GameState.None;
+	GameState _currentState = GameState.Splash;
+	int _currentLevel = 0;
+	int _currentMap = 0;
 
 	public static GameState CurrentState { get { return Singleton._currentState; } }
 
@@ -23,17 +25,18 @@ public class GameManager : MonoBehaviour
 	void Awake()
 	{
 		Debug.Assert(Singleton == null, "Cannot create multiple instances of the 'GameManager' singleton class.");
-
 		Singleton = this;
 	}
+
 	void Start()
 	{
-		SwitchGameState(GameState.Menu);
+		SceneManager.LoadSceneAsync("Game/Splash", LoadSceneMode.Additive);
+		_currentState = GameState.Splash;
 	}
 
 	void Update()
 	{
-		if ((Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape)) && _currentState == GameState.Running)
+		if ((Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape)) && _currentState == GameState.Ingame)
 		{
 			_paused = !_paused;
 			Time.timeScale = _paused ? 0.0f : 1.0f;
@@ -42,39 +45,24 @@ public class GameManager : MonoBehaviour
 
 	public static void SwitchGameState(GameState state)
 	{
-		if (state == Singleton._currentState)
-		{
-			return;
-		}
-
 		Singleton.StartCoroutine(Singleton.SwitchGameStateCoroutine(Singleton._currentState, state));
-
 		Singleton._currentState = state;
 	}
-	IEnumerator SwitchGameStateCoroutine(GameState oldstate, GameState newstate)
+
+	IEnumerator SwitchGameStateCoroutine(GameState oldState, GameState newState)
 	{
-		// Load new scene
-		if (newstate != GameState.None)
+		// From Splash to Menu
+		if (oldState == GameState.Splash && newState == GameState.Menu)
 		{
-			yield return SceneManager.LoadSceneAsync("Game (" + newstate + ")", LoadSceneMode.Additive);
+			SceneManager.UnloadScene("Game/Splash");
+			SceneManager.LoadSceneAsync("Game/Menu", LoadSceneMode.Additive);
+			yield return SceneManager.LoadSceneAsync("Game/Map", LoadSceneMode.Additive);
 		}
 
-		switch (oldstate)
+		if (oldState == GameState.Menu && newState == GameState.Ingame)
 		{
-			case GameState.Menu:
-				if (newstate == GameState.Running)
-				{
-					SceneManager.UnloadScene("Game (Menu)");
-				}
-				break;
-			case GameState.Won:
-			case GameState.Lost:
-				if (newstate == GameState.Menu)
-				{
-					SceneManager.UnloadScene("Game (Running)");
-					SceneManager.UnloadScene("Game (" + oldstate + ")");
-				}
-				break;
+			SceneManager.UnloadScene("Game/Menu");
+			yield return SceneManager.LoadSceneAsync("Game/Levels/0 - Tutorial", LoadSceneMode.Additive);
 		}
 	}
 }

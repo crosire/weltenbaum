@@ -15,6 +15,7 @@ public class MenuUI : MonoBehaviour
 	{
 		_audio = GetComponent<AudioSource>();
 	}
+
 	void Start()
 	{
 		GetComponent<CanvasGroup>().DOFade(1.0f, 1.0f);
@@ -22,10 +23,7 @@ public class MenuUI : MonoBehaviour
 
 	public void OnStartPressed()
 	{
-		DOTween.Sequence()
-			.Insert(0, GetComponent<CanvasGroup>().DOFade(0.0f, 1.0f))
-			.Insert(0, _audio.DOFade(0.0f, 2.0f))
-			.OnComplete(() => GameManager.SwitchGameState(GameState.Running));
+		GameManager.SwitchGameState(GameState.Ingame);
 	}
 	public void OnHelpPressed()
 	{
@@ -33,6 +31,7 @@ public class MenuUI : MonoBehaviour
 			.Append(_pages[0].DOFade(0f, .5f))
 			.Append(_pages[1].DOFade(1f, .5f));
 	}
+
 	public void OnAboutPressed()
 	{
 		DOTween.Sequence()
